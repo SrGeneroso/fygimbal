@@ -13,7 +13,8 @@ SHORT_FORM = 0x5aa5
 #   cmd00  Init / Firmware version
 
 # SHORT_FORM commands
-#   cmd01  Control data?
+#   cmd00  Control data from MCU2 to MCU1: int16(param09), int16(cmd0d), int32(param09+math), int32(cmd0d), uint8(mode)
+#   cmd01  Joystick data from MCU0
 #   cmd02
 #   cmd03  On/Off
 #   cmd04
@@ -25,7 +26,7 @@ SHORT_FORM = 0x5aa5
 #   cmd0a
 #   cmd0b  Init PC control handshake
 #   cmd0c  Capture center angles
-#   cmd0d  IMU data?
+#   cmd0d  Control data from MCU1 to MCU0: int32, int16, uint8(mode)
 
 class Packet:
     formats = {
