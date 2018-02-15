@@ -17,11 +17,11 @@ SHORT_FORM = 0x5aa5
 #   cmd02
 #   cmd03  On/Off
 #   cmd04
-#   cmd05  Save (per-axis?) config
-#   cmd06  Get 16-bit value from 8-bit (per-axis?) config space
-#   cmd07  Set 16-bit value in 8-bit (main?) config space
-#   cmd08  Set 16-bit value in 8-bit (per-axis?) config space
-#   cmd09  Unknown get, 12 bytes
+#   cmd05  Save config space
+#   cmd06  Get 16-bit value from config space
+#   cmd07  Write with numerical transform, 8-bit selector 012 for 5c-5e, then 16-bit value
+#   cmd08  Set 16-bit value in config space
+#   cmd09  Read 6 bytes, param5c-5e, mcu2-only
 #   cmd0a
 #   cmd0b  Init PC control handshake
 #   cmd0c  Capture center angles
