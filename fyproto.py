@@ -17,7 +17,7 @@ SHORT_FORM = 0x5aa5
 #   cmd01  Joystick data from MCU0
 #   cmd02
 #   cmd03  On/Off
-#   cmd04
+#   cmd04  Capture IMU/roll/pitch calibration? writes to param59-5b
 #   cmd05  Save config space
 #   cmd06  Get 16-bit value from config space
 #   cmd07  Write with numerical transform, 8-bit selector 012 for 5c-5e, then 16-bit value
