@@ -23,6 +23,12 @@ def try_call_site(addr, r0, r1=0, r2=0, r3=0):
 	u.emu_start(addr|1, addr+4)
 	return u.reg_read(UC_ARM_REG_R0), u.reg_read(UC_ARM_REG_R1)
 
+def unpack_int64(r0, r1):
+	return struct.unpack("q", struct.pack("<II", r0, r1))[0]
+
+def pack_int64(f):
+	return struct.unpack("<II", struct.pack("q", f))
+
 def unpack_float64(r0, r1):
 	return struct.unpack("d", struct.pack("<II", r0, r1))[0]
 
@@ -39,7 +45,7 @@ def pack_float32(f):
 for i in range(50):
 	print()
 	print(i)
-	a = 1
-	b = 1 + i*0.1
-	result = unpack_float32(*try_call_site(0x800a4ee, *(pack_float32(a) + pack_float32(b))))
-	print(a, b, result)
+	a = 0xabcdef00012000
+	b = 1+i
+	result = unpack_int64(*try_call_site(0x800b5f0, *(pack_int64(a) + pack_int64(b))))
+	print(a, b, result, a//b)

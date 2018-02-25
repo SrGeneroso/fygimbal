@@ -16,7 +16,7 @@ SHORT_FORM = 0x5aa5
 #   cmd00  Control data from MCU2 to MCU1: int16(param09), int16(cmd0d), int32(param09+math), int32(cmd0d), uint8(mode)
 #   cmd01  Joystick data from MCU0
 #   cmd03  Motor On/Off
-#   cmd04  Capture IMU/roll/pitch calibration? writes to param59-5b
+#   cmd04  Capture gyro drift compensation. Writes to param59-5b
 #   cmd05  Save config space
 #   cmd06  Get 16-bit value from config space
 #   cmd07  Write to 5c-5e (pitch/roll adjust) with floating point side-effect, mcu2-only
