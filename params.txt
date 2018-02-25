@@ -1,5 +1,8 @@
 # Mostly-clean params taken from a live and working gimbal
 
+# NOT BEING MAINTAINED, see this list instead:
+# https://github.com/TucoFlyer/Bot-Controller/blob/master/web/src/pages/GimbalInternals.jsx
+
 [-1, -1, -7683],                   # 0x00           |
 [0, 0, 0],                         # 0x01           |
 [0, 2, 2],                         # 0x02  init     |
