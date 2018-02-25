@@ -33,12 +33,13 @@ def unpack_float32(r0, r1=0):
 	return struct.unpack("f", struct.pack("<I", r0))[0]
 
 def pack_float32(f):
-	return struct.unpack("<I", struct.pack("f", f))[0]
+	return struct.unpack("<I", struct.pack("f", f))
 
 
 for i in range(50):
 	print()
-	f = i * 0.4
-	print(f)
-	result = try_call_site(0x800aed4, pack_float32(f))
-	print(result, unpack_float32(*result)
+	print(i)
+	a = 1
+	b = 1 + i*0.1
+	result = unpack_float32(*try_call_site(0x800a4ee, *(pack_float32(a) + pack_float32(b))))
+	print(a, b, result)

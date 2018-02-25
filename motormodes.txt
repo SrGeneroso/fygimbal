@@ -1,0 +1,34 @@
+Modes for param18
+-----------------
+
+Values are 0-6 inclusive.
+
+0 = off
+1 = normal
+2 = lowest level direct motor drive using param4e, simulated cal1 angle rate in param4f
+3 = drive tim2 controller using input from param50, also use param1d/1e during init
+4 = lowest level direct motor drive using param4e, with real cal1 angle
+5 = Run like mode3 for a single tick, then go back to mode1
+6 = lowest level direct motor drive using param4e, cal1 assumed zero, writes param49
+
+CAL1 procedure:
+   - Run in mode 6 until cogging stabilized,
+   - store any of the 6 cogging points as CAL1 for this axis.
+     (Using cmd0C or by manually writing to param space.)
+   - Optional, save to flash memory with cmd05.
+
+
+0 1 2 3 4 5 6
+  x   x   x    Uses encoder angle
+    x   x   x  motor_controller_command = param4e
+    x          motor_filtered_cal1_angle += param4f * 3.49525390625
+            x  motor_filtered_cal1_angle = 0
+      x   x    tim2_motor_command_input = param50
+  x   x   x    motor_controller_command calculated
+x              motor_controller_command = 0
+      x   x    param1d and param1e used instead of zeroes, during init, for c6c+c68
+            x  Writes param49 = (int) ([c70] // param0b * 32.0f)
+        x      motor_mode_debug_enum = 4
+  x   x   x    motor_mode_debug_enum = 3
+    x          motor_mode_debug_enum = 2
+          x    Immediately transition to mode 1

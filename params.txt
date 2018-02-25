@@ -8,7 +8,7 @@
 [0, 0, 0],                         # 0x05  dynamic  |
 [0, 1294, -2232],                  # 0x06  dynamic  |
 [0, 117, 119],                     # 0x07  dynamic  |
-[0, 0, 0],                         # 0x08  rw       |       "Current heading" integrated statusmj,,h 
+[0, 0, 0],                         # 0x08  rw       |       "Current heading" integrated status
 [0, -3754, -296],                  # 0x09  dynamic  |       Stabilizing control input from MCU2 to each axis (MCU2 outgoing cmd00)
 [0, 0, 0],                         # 0x0a           |
 [500, 500, 500],                   # 0x0b           |
